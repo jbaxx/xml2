@@ -98,7 +98,7 @@ read_xml.character <- function(x, encoding = "", ..., as_html = FALSE,
   if (grepl("<|>", x)) {
     read_xml.raw(charToRaw(enc2utf8(x)), "UTF-8", ..., as_html = as_html, options = options)
   } else {
-    con <- path_to_connection(x)
+    con <- url(x)
     if (inherits(con, "connection")) {
       read_xml.connection(con, encoding = encoding, ..., as_html = as_html,
         base_url = x, options = options)
